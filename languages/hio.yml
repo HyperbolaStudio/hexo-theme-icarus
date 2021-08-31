@@ -1,1 +1,66 @@
-/home/crs_16423/hsmc-i18n/hsmc/_personalized/hio.yml
+common:
+    archive:
+        one: 'Archive'
+        other: 'Archive'
+    category:
+        one: 'Kategorie'
+        other: 'Kategorie'
+    tag:
+        one: 'Tag'
+        other: 'Tag'
+    post:
+        one: 'Garetūs'
+        other: 'Garetūs'
+    page:
+        one: 'Kapse'
+        other: 'Kapse'
+    prev: 'Myata'
+    next: 'Piata'
+widget:
+    follow: 'Zue'
+    recents: 'Kirō Ro'
+    links: 'Link'
+    catalogue: 'Unō-Bet'
+    subscribe_email: 'Myatabokrete ve Paruvertalle'
+    subscribe: 'Myatabokrete'
+    adsense: 'Idbōënliē̈ndūs'
+    followit: 'follow.it'
+article:
+    created_at: 'Garetebepe za&nbsp;%s'
+    updated_at: 'Paruvertalletebepe za&nbsp;%s'
+    more: 'Lid Gen Deli'
+    comments: 'Komment'
+    read_time: 'Lid %s do Fin'
+    word_count:
+        one: 'Approks %d jat'
+        other: 'Approks %d jat'
+    licensing:
+        author: 'Hastezē'
+        created_at: 'Garete za'
+        updated_at: 'Paruvertallete za'
+        licensed_under: 'License ma'
+donate:
+    title: "Surro zig hasēn? Parulye tat'd hastezē io"
+    afdian: 'Afdian.net'
+    alipay: 'Alipay'
+    wechat: 'Wechat'
+    paypal: 'Paypal'
+    patreon: 'Patreon'
+    buymeacoffee: 'Sutaru mi ūn kofe'
+plugin:
+    backtotop: 'Hurguru do Paru'
+    visit_count: '%s&nbsp;bet'
+    visitor_count: '%s betzē'
+    cookie_consent:
+      message: "Zig nattye io cookie la parufigelle eso'd zolucinantūs."
+      dismiss: Xelle
+      allow: Mireru Cookie
+      deny: Dūzmireru
+      link: Rakuno gen deli
+      policy: Cookie Politik
+search:
+    search: 'Soru'
+    hint: 'Bue inte se ro...'
+    no_result: 'Dūzio'
+    untitled: '(Dūzio Syulin)'
+    empty_preview: '(Dūzio Myatabet)'

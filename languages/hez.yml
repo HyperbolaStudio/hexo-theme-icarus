@@ -1,1 +1,66 @@
-/home/crs_16423/hsmc-i18n/hsmc/_personalized/hez.yml
+common:
+    archive:
+        one: '书库'
+        other: '书库'
+    category:
+        one: '类别'
+        other: '类别'
+    tag:
+        one: 扎'
+        other: '扎'
+    post:
+        one: '寄ㄜㄙ'
+        other: '寄ㄜㄙ'
+    page:
+        one: '页'
+        other: '页'
+    prev: '先ㄩㄈ'
+    next: '后ㄩㄈ'
+widget:
+    follow: '与ㄒㄧㄊㄝ'
+    recents: '近期ㄡ物'
+    links: '接ㄙ件'
+    catalogue: '一ㄡ览ㄎ'
+    subscribe_email: '上ㄖㄨ段所先ㄩㄙ束ㄊㄝ'
+    subscribe: '先ㄩㄙ束ㄊㄝ'
+    adsense: '广ㄡ告ㄜㄙ'
+    followit: 'follow.it'
+article:
+    created_at: '%s于寄ㄊㄝ了'
+    updated_at: '%s于上ㄖㄨ段ㄊㄝ了'
+    more: '更ㄣ多ㄨ阅ㄉ'
+    comments: '评论'
+    read_time: '%sㄗㄚㄧㄋ终·ㄧㄒㄛ阅ㄉ'
+    word_count:
+        one: '约%d字'
+        other: '约%d字'
+    licensing:
+        author: '写ㄊㄝ者'
+        created_at: '寄ㄊㄝ于'
+        updated_at: '上ㄖㄨ段ㄊㄝ于'
+        licensed_under: '协议ㄇㄚ'
+donate:
+    title: "此写ㄦㄋ兮好ㄩ？兹以写ㄊㄝ者兮上ㄖㄨ立·ㄝㄏㄧㄊㄝ"
+    afdian: 'Afdian.net'
+    alipay: 'Alipay'
+    wechat: 'Wechat'
+    paypal: 'Paypal'
+    patreon: 'Patreon'
+    buymeacoffee: 'ㄎㄛㄈㄧ兮买ㄖ'
+plugin:
+    backtotop: '上ㄖㄖㄨ至回ㄖ'
+    visit_count: '%s见ㄎ'
+    visitor_count: '%s见者'
+    cookie_consent:
+      message: "此网ㄎ台持Cookie以尔的动ㄌㄨㄒㄧ感ㄜㄙ兮上ㄖㄨ品ㄊㄝ。"
+      dismiss: ㄏㄝㄌㄌㄝ
+      allow: Cookie兮允ㄖ
+      deny: 不允ㄖ
+      link: 更ㄣ多ㄨ学ㄖ
+      policy: Cookie政策
+search:
+    search: '寻ㄖ'
+    hint: '某物兮入ㄜ付·ㄝㄏㄧㄊㄝ...'
+    no_result: '无'
+    untitled: '(无头行)'
+    empty_preview: '(无先见)'

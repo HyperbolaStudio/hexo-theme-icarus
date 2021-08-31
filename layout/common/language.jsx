@@ -1,7 +1,6 @@
 const { Component } = require('inferno');
 const path = require("path");
 const translationMap = require('../../../../translationMap');
-const uslug = require("uslug");
 const S = require("string");
 
 function getLanguageDisplayName(s,languageDisplayNameMap){

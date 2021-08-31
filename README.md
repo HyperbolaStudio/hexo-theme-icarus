@@ -1,3 +1,32 @@
+# Hyperbola Minecraft Mogai Icarus
+
+A simple, delicate, and modern theme for the static site generator Hexo, **with some features added by the Hyperbola Studio Minecraft Team**.
+
+## Features added: 
+
+- Multi-language support
+- Hio and Hez translation
+
+## Usage
+
+Add a property `i18n` to the meta data of pages and posts. The value is an object whose keys are language names and values are the titles of the pages of the website in the specified language.
+
+Only supports permanent link format `:title/`
+
+Synopsis:
+
+```yaml
+i18n:
+    zh-CN: 测试
+    en: test
+    hio: xobdenjūs
+    hez: 试ㄜㄙ
+```
+
+The docs of some detailed usage are still being written.
+
+Below is its original documentation.
+
 <p align="center" class="mb-2">
 <img class="not-gallery-item" height="48" src="https://ppoffice.github.io/hexo-theme-icarus/img/logo.svg">
 <br> A simple, delicate, and modern theme for the static site generator Hexo.

@@ -134,4 +134,11 @@
         $mask.on('click', toggleToc);
         $('.navbar-main .catalogue').on('click', toggleToc);
     }
+    let languageSelector = $('.language > select')[0];
+    languageSelector.onchange = ()=>{
+        let selectedOption = languageSelector.options[languageSelector.selectedIndex];
+        let targetUrl = selectedOption.getAttribute("data-url");
+        if(targetUrl === "[currentLanguage]")return;
+        location.pathname = targetUrl;
+    }
 }(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings));

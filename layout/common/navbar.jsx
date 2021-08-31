@@ -1,6 +1,7 @@
 const { Component, Fragment } = require('inferno');
 const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
 const classname = require('hexo-component-inferno/lib/util/classname');
+const Language = require('./language');
 
 function isSameLink(a, b) {
     function santize(url) {
@@ -11,6 +12,52 @@ function isSameLink(a, b) {
         return paths.join('/');
     }
     return santize(a) === santize(b);
+}
+
+function calcProps(props) {
+    const { config, helper, page } = props;
+    const { url_for, _p, __ } = helper;
+    const { logo, title, navbar, widgets, search } = config;
+
+    const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
+    const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);
+
+    const menu = {};
+    if (navbar && navbar.menu) {
+        const pageUrl = typeof page.path !== 'undefined' ? url_for(page.path) : '';
+        Object.keys(navbar.menu).forEach(name => {
+            const url = url_for(navbar.menu[name]);
+            const active = isSameLink(url, pageUrl);
+            menu[name] = { url, active };
+        });
+    }
+
+    const links = {};
+    if (navbar && navbar.links) {
+        Object.keys(navbar.links).forEach(name => {
+            const link = navbar.links[name];
+            links[name] = {
+                url: url_for(typeof link === 'string' ? link : link.url),
+                icon: link.icon
+            };
+        });
+    }
+
+    return {
+        page,
+        config,
+        helper,
+        logo,
+        logoUrl: url_for(logo),
+        siteUrl: url_for('/'),
+        siteTitle: title,
+        menu,
+        links,
+        showToc,
+        tocTitle: _p('widget.catalogue', Infinity),
+        showSearch: search && search.type,
+        searchTitle: __('search.search')
+    };
 }
 
 class Navbar extends Component {
@@ -26,7 +73,7 @@ class Navbar extends Component {
             tocTitle,
             showSearch,
             searchTitle
-        } = this.props;
+        } = calcProps(this.props);
 
         let navbarLogo = '';
         if (logo) {
@@ -65,6 +112,7 @@ class Navbar extends Component {
                         {showToc ? <a class="navbar-item is-hidden-tablet catalogue" title={tocTitle} href="javascript:;">
                             <i class="fas fa-list-ul"></i>
                         </a> : null}
+                        <Language config={this.props.config} page={this.props.page} helper={this.props.helper}></Language>
                         {showSearch ? <a class="navbar-item search" title={searchTitle} href="javascript:;">
                             <i class="fas fa-search"></i>
                         </a> : null}
@@ -75,45 +123,50 @@ class Navbar extends Component {
     }
 }
 
-module.exports = cacheComponent(Navbar, 'common.navbar', props => {
-    const { config, helper, page } = props;
-    const { url_for, _p, __ } = helper;
-    const { logo, title, navbar, widgets, search } = config;
+module.exports = Navbar;
 
-    const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
-    const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);
+// module.exports = cacheComponent(Navbar, 'common.navbar', props => {
+//     const { config, helper, page } = props;
+//     const { url_for, _p, __ } = helper;
+//     const { logo, title, navbar, widgets, search } = config;
 
-    const menu = {};
-    if (navbar && navbar.menu) {
-        const pageUrl = typeof page.path !== 'undefined' ? url_for(page.path) : '';
-        Object.keys(navbar.menu).forEach(name => {
-            const url = url_for(navbar.menu[name]);
-            const active = isSameLink(url, pageUrl);
-            menu[name] = { url, active };
-        });
-    }
+//     const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
+//     const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);
 
-    const links = {};
-    if (navbar && navbar.links) {
-        Object.keys(navbar.links).forEach(name => {
-            const link = navbar.links[name];
-            links[name] = {
-                url: url_for(typeof link === 'string' ? link : link.url),
-                icon: link.icon
-            };
-        });
-    }
+//     const menu = {};
+//     if (navbar && navbar.menu) {
+//         const pageUrl = typeof page.path !== 'undefined' ? url_for(page.path) : '';
+//         Object.keys(navbar.menu).forEach(name => {
+//             const url = url_for(navbar.menu[name]);
+//             const active = isSameLink(url, pageUrl);
+//             menu[name] = { url, active };
+//         });
+//     }
 
-    return {
-        logo,
-        logoUrl: url_for(logo),
-        siteUrl: url_for('/'),
-        siteTitle: title,
-        menu,
-        links,
-        showToc,
-        tocTitle: _p('widget.catalogue', Infinity),
-        showSearch: search && search.type,
-        searchTitle: __('search.search')
-    };
-});
+//     const links = {};
+//     if (navbar && navbar.links) {
+//         Object.keys(navbar.links).forEach(name => {
+//             const link = navbar.links[name];
+//             links[name] = {
+//                 url: url_for(typeof link === 'string' ? link : link.url),
+//                 icon: link.icon
+//             };
+//         });
+//     }
+
+//     return {
+//         page,
+//         config,
+//         helper,
+//         logo,
+//         logoUrl: url_for(logo),
+//         siteUrl: url_for('/'),
+//         siteTitle: title,
+//         menu,
+//         links,
+//         showToc,
+//         tocTitle: _p('widget.catalogue', Infinity),
+//         showSearch: search && search.type,
+//         searchTitle: __('search.search')
+//     };
+// });

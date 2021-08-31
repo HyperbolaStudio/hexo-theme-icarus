@@ -39,7 +39,8 @@
     "inferno": "^7.3.3",
     "inferno-create-element": "^7.3.3",
     "moment": "^2.22.2",
-    "semver": ">=5.0.0"
+    "semver": ">=5.0.0",
+    "string": "^3.3.3"
   },
   "peerDependencies": {
     "bulma-stylus": "0.8.0",
